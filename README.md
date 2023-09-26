@@ -131,37 +131,38 @@ She will add Bob as collaborator in the setting
 
 Alice and Bob decide to divide the work to avoid conflicts. They agree on the following tasks:
 
-- **Alice**: She will work on the header section, creating `header.html` and `style.css`.
-- **Bob**: He will work on the main content section, creating `main.html` and `style.css`.
+- **Alice**: She will work on the header section, creating `header.html`.
+- **Bob**: He will work on the main content section, creating `main.html`.
 
 ### Step 3: Working on Separate Branches
 
-Both Alice and Bob create their own branches to work on their respective tasks.
+Both Alice and Bob create their own codes to work on their respective tasks.
 
 **Alice**:
 
-```bash
-cd landing-page
-git checkout -b alice-header
+```html
+<!-- header.html -->
+<h1>Alice: code of header</h1>
 ```
 
 **Bob**:
 
-```bash
-cd landing-page
-git checkout -b bob-main-content
+```html
+<!-- main.html -->
+<h1>Bob: code of main</h1>
 ```
 
 ### Step 4: Developing and Committing
 
 #### Alice's Workflow
 
-Alice edits `header.html` and `style.css`, adds and commits her changes:
+Alice edits `header.html`, adds and commits her changes:
 
 ```bash
-# Make changes to header.html and style.css
-git add header.html style.css
+# Make changes to header.html
+git add .
 git commit -m "Added header section"
+git push
 ```
 
 #### Bob's Workflow
@@ -169,9 +170,10 @@ git commit -m "Added header section"
 Bob edits `main.html` and `style.css`, adds and commits his changes:
 
 ```bash
-# Make changes to main.html and style.css
-git add main.html style.css
+# Make changes to main.html
+git add .
 git commit -m "Added main content section"
+git push
 ```
 
 ### Step 5: Pushing to GitHub
@@ -181,51 +183,14 @@ Now, Alice and Bob push their changes to the GitHub repository:
 **Alice**:
 
 ```bash
-git push origin alice-header
+git push
 ```
 
 **Bob**:
 
 ```bash
-git push origin bob-main-content
-```
-
-### Step 6: Creating Pull Requests
-
-Alice and Bob go to the GitHub repository's page and create pull requests for their branches. They describe their changes and submit the pull requests.
-
-### Step 7: Merging without Conflicts
-
-Since Alice and Bob worked on separate files and in separate branches, there are no conflicts. The pull requests are reviewed and approved.
-
-### Step 8: Merging and Updating
-
-After their pull requests are approved, Alice and Bob can merge their changes into the `master` branch:
-
-**Alice**:
-
-```bash
-# Switch to the master branch
-git checkout master
-
-# Merge the changes from alice-header branch
-git merge alice-header
-
-# Push the changes to GitHub
-git push origin master
-```
-
-**Bob**:
-
-```bash
-# Switch to the master branch
-git checkout master
-
-# Merge the changes from bob-main-content branch
-git merge bob-main-content
-
-# Push the changes to GitHub
-git push origin master
+git pull # If Alice already pushed code, Bob needs to pull
+git push
 ```
 
 ### Conclusion
@@ -269,27 +234,28 @@ Both Alice and Bob commit their changes to their respective branches:
 **Alice**:
 
 ```bash
-git add index.html
-git commit -m "Alice's changes to header"
-git push origin alice-header
+git add .
+git commit -m "Alice's changes to index.html"
+git push
 ```
 
 **Bob**:
 
 ```bash
-git add index.html
-git commit -m "Bob's changes to header"
-git push origin bob-main-content
+git add .
+git commit -m "Bob's changes to index.html"
+git push
 ```
 
 ### Step 4: Merge Conflict Arises
 
-When Alice tries to merge her branch into the `master` branch, she encounters a conflict:
+When Bob tries to push his code into the `master` branch, he encounters a conflict. He has to do the pull first
 
 ```bash
-git checkout master
-git merge alice-header
+git pull
 ```
+
+Then, he sees the conflict
 
 The terminal shows a conflict message:
 
@@ -339,7 +305,7 @@ git commit -m "Resolved conflict by keeping Bob's version"
 Now that the conflict is resolved, Alice can push the changes to the `master` branch:
 
 ```bash
-git push origin master
+git push
 ```
 
 ### Conclusion
