@@ -1,4 +1,4 @@
-## Git and GitHub Tutorial
+## Lecture 06: Git and GitHub
 
 ### Introduction
 
@@ -116,6 +116,10 @@ In this case study, we have two developers, Alice and Bob, who are collaborating
    ```bash
    git clone https://github.com/alice/landing-page.git
    ```
+
+She will add Bob as collaborator in the setting
+
+![Alt text](image-1.png)
 
 3. **Bob** also wants to contribute to the project, so he clones the same repository to his local machine:
 
